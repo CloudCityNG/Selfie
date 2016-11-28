@@ -4,9 +4,10 @@ if(captureImage)
 
 var constraints = window.constraints = {
   audio: false,
-  video: true
+   video: { width: 1280, height: 720 }
 };
 var errorElement = document.querySelector('#errorId');
+var downloadButton = document.getElementById('downloadId');
 
 navigator.mediaDevices.getUserMedia(constraints)
 .then(
@@ -19,7 +20,7 @@ navigator.mediaDevices.getUserMedia(constraints)
 })
 .catch(function(error) {
   if (error.name === 'ConstraintNotSatisfiedError') {
-    errorMsg('The resolution ' + constraints.video.width.exact + 'x' +
+    errorMsg('The resolution ' + constraints.video.width.exact + ' x ' +
         constraints.video.width.exact + ' px is not supported by your device.');
   } else if (error.name === 'PermissionDeniedError') {
     errorMsg('Permissions were not granted to use the camera of your device. For this demo to work, please provide access to your webcam.');
@@ -40,4 +41,7 @@ function takeSelfie() {
   canvasElement.width = videoElement.videoWidth;
   canvasElement.height = videoElement.videoHeight;
   context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+
+  downloadButton.classList.remove("disabled");
+  downloadButton.href = canvasElement.toDataURL('image/png');
 }
