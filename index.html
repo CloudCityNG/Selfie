@@ -8,13 +8,15 @@
   </head>
   <body>
     <div class="webcam">
-      <video id="videoID" width="300" height="200">
-
-      </video>
+      <video id="videoId" width="300" height="200" >
+      </video> <br>
     </div>
 
     <div class="photoButton">
-        <input type="button" name="action" value="Take photo!"/>
+        <p>
+        <canvas id="canvasId" width="300" height="300" style="border:1px solid #000000;"></canvas>
+        <input id="pictureButtonId" type="button" name="action" value="Take photo!"/>
     </div>
+    <h3 id="errorId"></h3>
   </body>
 </html>
