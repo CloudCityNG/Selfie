@@ -1,0 +1,9 @@
+div.photoButton {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+}
+body {
+  background: #DDDDDD;
+}
