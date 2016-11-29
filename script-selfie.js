@@ -62,7 +62,7 @@ navigator.mediaDevices.getUserMedia(constraints)
     errorMsg('The resolution ' + constraints.video.width.exact + ' x ' +
         constraints.video.width.exact + ' px is not supported by your device.');
   } else if (error.name === 'PermissionDeniedError') {
-    errorMsg('Permissions were not granted to use the camera of your device. In order to take a selfie, please provide access to your webcam.');
+    errorMsg('Permission was not granted to use the camera of your device. In order to take a selfie, please provide access to your webcam.');
   }
   else {
     errorMsg('There was an error in accessing your webcam. Please reload the page and provide access to the camera.');
@@ -79,11 +79,12 @@ function errorMsg(msg, error) {
 function takeSelfie() {
   canvasElement.width = videoElement.videoWidth;
   canvasElement.height = videoElement.videoHeight;
-  context.filter = videoElement.style.filter || videoElement.style.webkitFilter;
+  context.filter = videoElement.style.filter || videoElement.style.webkitFilter, videoElement.style.mozfilter;
   context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
   canvasElement.style = "border:2px solid #000000;"
   canvasElement.style.filter = videoElement.style.filter;
-  canvasElement.style.webkitFilter = videoElement.style.webkitFilter;
+  canvasElement.style.webkitFilter = videoElement.style.mozfilter;
+  canvasElement.style.mozFilter = videoElement.style.mozfilter;
 
   downloadButton.href = canvasElement.toDataURL('image/png');
 }
@@ -93,6 +94,7 @@ function processHueImage() {
   slider.addEventListener("change", processHueImage, false);
   videoElement.style.filter = "hue-rotate(90deg)";
   videoElement.style.webkitFilter = "hue-rotate(90deg)";
+  videoElement.style.mozfilter = "hue-rotate(90deg)";
 }
 
 function processGrayImage() {
@@ -101,6 +103,7 @@ function processGrayImage() {
   var sliderVal = slider.value;
   videoElement.style.filter = "grayscale(" + sliderVal + "%)";
   videoElement.style.webkitFilter = "grayscale(" + sliderVal + "%)";
+  videoElement.style.mozfilter = "grayscale(" + sliderVal + "%)";
 }
 
 function processSepiaImage() {
