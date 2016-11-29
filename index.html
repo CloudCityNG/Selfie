@@ -17,12 +17,25 @@
 
           <div class="controls">
             <a href="#" id="buttonId" title="Capture image"><i class="fa fa-camera" aria-hidden="true"></i> Take photo</a>
-            <a href="#" id="downloadId" title="Save image" download="MySelfie.jpg"><i class="fa fa-download" aria-hidden="true"></i> Download image </a>
-          </div>
-          <a href="#" id="grayId"> Black-and-white </a>
-          
+            <div class="filters">
+              <div class="sliderClass">
+              <input type="range" id="sliderId" name="val" min="0" max="100"/>
+            </div>
 
-          <h4 id="errorId"></h4>
+              <a href="#" id="grayId"> Black-and-white </a>
+              <a href="#" id="sepiaId"> Sepia</a>
+              <a href="#" id="saturateId"> Saturate</a>
+              <a href="#" id="brightId"> Brightness</a>
+              <a href="#" id="contrastId"> Contrast</a>
+              <a href="#" id="hueId"> Hue</a>
+              <a href="#" id="blurId"> Blur</a>
+              <a href="#" id="opacityId"> Opacity</a>
+              <a href="#" id="resetId"> Reset</a>
+            </div>
+            <a href="#" id="downloadId" title="Save image" download="MySelfie.jpg"><i class="fa fa-download" aria-hidden="true"></i> Download image </a>
+          </div> <br>
+
+            <h5 id="errorId"></h5>
         </body>
       </div>
     </div>
