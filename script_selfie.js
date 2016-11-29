@@ -2,6 +2,11 @@ captureImage = document.getElementById('buttonId');
 if(captureImage)
   captureImage.addEventListener('click', takeSelfie, false);
 
+  grayImage = document.getElementById('grayId');
+  if(grayImage)
+    grayImage.addEventListener('click', processGrayImage, false);
+
+
 var constraints = window.constraints = {
   audio: false,
    video: { width: 1280, height: 720 }
@@ -41,7 +46,11 @@ function takeSelfie() {
   canvasElement.width = videoElement.videoWidth;
   canvasElement.height = videoElement.videoHeight;
   context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+  canvasElement.style = "border:2px solid #000000;"
 
-  downloadButton.classList.remove("disabled");
   downloadButton.href = canvasElement.toDataURL('image/png');
+}
+
+function processGrayImage() {
+  videoElement.style.filter = "grayscale(100%)";
 }

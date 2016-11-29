@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
   <head>
     <meta charset="utf-8">
     <title>Selfie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="webcam">
-      <video id="videoId" width="500" height="500" >
-      </video> <br>
-    </div>
+    <h4> WebSelfie </h4>
+    <div class="container">
+      <div class="app">
+          <div class="display">
+            <video id="videoId"> </video>
+            <canvas id="canvasId"> </canvas>
+          </div>
 
-    <div class="photoButton">
-        <p>
-        <canvas id="canvasId" style="border:1px solid #000000;"></canvas>
-        <input id="buttonId" type="button" value="Take photo!"/>
+          <div class="controls">
+            <a href="#" id="buttonId" title="Capture image"><i class="fa fa-camera" aria-hidden="true"></i> Take photo</a>
+            <a href="#" id="downloadId" title="Save image" download="MySelfie.jpg"><i class="fa fa-download" aria-hidden="true"></i> Download image </a>
+          </div>
+          <a href="#" id="grayId"> Black-and-white </a>
+          
+
+          <h4 id="errorId"></h4>
+        </body>
+      </div>
     </div>
-    <a href="#" id="downloadId" title="Save image" download="MySelfie.jpg">Save photo </a> <br>
-    <h3 id="errorId"></h3>
-  </body>
       <script type="text/javascript" src="script_selfie.js"></script>
-</html>
+    </html>
